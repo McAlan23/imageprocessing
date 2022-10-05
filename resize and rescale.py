@@ -1,0 +1,18 @@
+import cv2 as cv
+img=cv.imread('photos/office.jpg')
+
+cv.imshow('office' , img)
+
+cv.waitKey(0)
+
+def rescaleFrame(frame, scale=0.75):
+    width = int(frame.shape[1] * scale)
+    height = frame.shape[0] * scale
+    demensions = (width, height)
+
+    return cv.resize(frame, demensions, interpolation=cv.INTER_AREA)
+
+resized_image = rescaleFrame(img)
+cv.imshow('image', resized_image)
+
+
